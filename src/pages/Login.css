@@ -1,0 +1,17 @@
+.background-image {
+    background-image: url('../images/Background.jpg'); /* Replace 'your-image.jpg' with your actual image filename */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    
+  }
+
+  .background-image-overlay {
+    background-image: url('../images/Background-Overlay.png'); /* Replace 'your-image.jpg' with your actual image filename */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    
+  }
