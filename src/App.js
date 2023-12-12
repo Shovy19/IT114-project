@@ -9,7 +9,7 @@ import Colleges from "./pages/Colleges"
 import Instructor from "./pages/Instructor";
 import Event from "./pages/Event";
 import CollegeDetail from './pages/CollegeDetail'
-import InstructorDetail from "./pages/InstructorDetail";
+import InstructorInfo from "./pages/InstructorInfo";
 import BuildingInfo from "./pages/BuildingInfo";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
           <Route path="/Homepage/Event" element={<Event />} />
         
           <Route path="/colleges/:collegeName" element={<CollegeDetail />} />
-          <Route path="/instructor/:instructorName" element={<InstructorDetail />} />
+          <Route path="/instructor/:instructorName" element={<InstructorInfo />} />
           <Route path="/Building/:buildingName" element={<BuildingInfo />} />
           
 
