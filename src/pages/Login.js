@@ -21,8 +21,9 @@ const Login = () => {
         try {
         const result = await client.fetch(query, params);
         if (result.length > 0) {
-            // User exists, redirect to userhome
-            history(`/Homepage?username=${result[0].id}`);
+            
+            localStorage.setItem('userId', result[0].id);   
+            history('/Homepage')
             
         } else {
             // User doesn't exist or the password is incorrect
@@ -32,6 +33,8 @@ const Login = () => {
         console.error('Error:', error);
         }
     };
+
+
   return (
     <>
         <section className="background-image overflow-hidden">
@@ -77,7 +80,7 @@ const Login = () => {
                     <button onClick={handleLogin} className='w-full px-5 py-1 text-white rounded-md bg-green-500'>Submit</button>
                 </div>
 
-                </div>
+            </div>
             </div>
             </div>
         </section>

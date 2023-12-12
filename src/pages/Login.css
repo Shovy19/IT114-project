@@ -15,3 +15,22 @@
     height: 100vh;
     
   }
+
+.backgroundTransparent{
+  background-color: rgba(0, 162, 59, 0.538);
+}
+
+.labelinfo{
+  font-size: 16px;
+  font-weight: 70 0;
+  color: rgb(220, 220, 220);
+}
+
+.leftNavigationLabelInstructor{
+  padding: 5px 0;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(60, 81, 54, 0.315);
+  margin-top: 4px;
+  cursor: pointer;
+}

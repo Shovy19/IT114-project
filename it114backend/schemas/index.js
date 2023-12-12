@@ -1,14 +1,22 @@
 import user from './user'
 import event from './event'
 import announcement from './announcement'
-import buildingss from './buildingss'
+import buildings from './buildings'
 import room from './room'
+import colleges from './colleges'
+import departments from './departments'
+import instructor from './instructor'
+import course from './course'
 
 
 export const schemaTypes = [
     user,
-    buildingss,
+    buildings,
     event,
     announcement,
-    room
+    room,
+    colleges,
+    departments,
+    course,
+    instructor
 ]

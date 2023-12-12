@@ -1,3 +1,5 @@
+// building.js
+
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
@@ -24,6 +26,24 @@ export default defineType({
       name: 'image',
       title: 'Image',
       type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'images',
+      title: 'Images',
+      type: 'array',
+      of: [{ type: 'image' }],
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'imageLocation',
+      title: 'Image Location',
+      type: 'image',
+      description: 'map location image',
       options: {
         hotspot: true,
       },

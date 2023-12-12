@@ -16,6 +16,8 @@ const Homepage = () => {
 
     const [events, setEvents] = useState([]);
 
+    const storedUserId = localStorage.getItem('userId');
+
     useEffect(() => {
       client
         .fetch(
@@ -129,7 +131,7 @@ const Homepage = () => {
               
               <footer className='absolute md:bottom-0 md:left-0 md:right-0 flex justify-center gap-8 text-slate-600 font-semibold py-3
                 bg-green-600'>
-                 {username && <p>User: {username}</p>} 
+                 <p>User: {storedUserId}</p>
                  <DateTimeDisplayFlex />
               </footer>
             </div>

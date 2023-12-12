@@ -5,6 +5,7 @@ import { client } from '../lib/sanityClient';
 import DropdownMenu from '../components/DropdownMenu';
 
 import DateTimeDisplayFlex from '../components/DateTimeDisplayFlex'
+import LeftNavigationEvent from '../components/LeftNavigationEvent';
 
 import "./Login.css"
 
@@ -34,42 +35,42 @@ const Event = () => {
   }, []);
 
   return (
-    <div className='background-image-overlay'>
-      <section className='md:h-screen grid md:grid-cols-9 lg:grid-cols-7'>
-        <div className='bg-slate-300 md:col-span-3 lg:col-span-2 text-center'>
-          <Link to={`/Homepage?username=${username}`}>
-            <h1 className='text-3xl md:text-4xl bg-green-600 py-4 text-slate-200 font-bold'>
-                CSU Events
-              </h1>
-          </Link>
+    <>
+      <div className='flex h-screen'>
+        <section className='bg-green-600 w-[350px] pt-5'>
+          <Link to='/Homepage'>
+            <h1 className='text-center text-white text-3xl font-bold'>CSU Events</h1>
 
+          </Link>
+          <div>
+            <LeftNavigationEvent />
+          </div>
+         
+          
+        </section>
+
+        <div className='absolute right-3 top-1'>
+          <DropdownMenu />
         </div>
 
-        <div className='md:relative md:col-span-6 lg:col-span-5'>
-
-            <div className='absolute bg-black-300 w-lg right-1 top-1 rounded-lg'>
-              <DropdownMenu />
-            </div>
-
-            <div>
-            <h1 className='text-center mb-10 mt-10 text-2xl font-bold text-slate-800'>Event List</h1>
-            <ul className='mx-6'>
+        <section className='background-image-overlay grow'>
+          <div>
+            <h1 className=' text-center mb-10 mt-14 text-5xl font-bold text-slate-600'>Event List</h1>
+            <ul className='mx-6 grid grid-cols-2 gap-1'>
               {events.map((event) => (
-                <li key={event.slug.current} className='bg-green-600 mt-3 rounded-lg py-2 px-7'>
+                <li key={event.slug.current} className='bg-green-800 rounded-lg py-2 px-7'>
                   <h2 className='text-xl'>{event.title}</h2>
-                  <p className='text-sm text-slate-700'>Location: {event.address}</p>
-                  <p>Date: {event.publishedAt}</p>
+                  <p className='text-sm text-slate-400'>Location: {event.address}</p>
+                  <p className='text-sm'>Date: {event.publishedAt}</p>
                   <p>Description: {event.body}</p>
                 </li>
               ))}
             </ul>
-            </div>
-
-        </div>
-
-      </section>
-        
-    </div>
+          </div>
+         
+        </section>
+      </div>
+    </>
   )
 }
 

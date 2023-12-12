@@ -8,7 +8,8 @@ const DropdownMenu = () => {
 
   const { search } = useLocation();
   const params = new URLSearchParams(search);
-  const username = params.get('username');
+  const storedUserId = localStorage.getItem('userId');
+
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,12 +27,12 @@ const DropdownMenu = () => {
       </button>
       <div className={`custom-dropdown ${isOpen ? 'open' : ''}`}>
         <ul>
-          <Link to={`/Homepage/Map?username=${username}`}>
+          <Link to={`/Homepage/Map`}>
           <li>
             <button className="custom-dropdown-item">MAP</button>
           </li>
           </Link>
-          <Link to={`/Homepage/Building?username=${username}`}>
+          <Link to={`/Homepage/Building`}>
           <li>
             <button className="custom-dropdown-item">BUILDING</button>
           </li>
@@ -46,14 +47,11 @@ const DropdownMenu = () => {
             <button className="custom-dropdown-item">INSTRUCTOR</button>
           </li>
           </Link>
-          <Link to={`/Homepage/Event?username=${username}`}>
+          <Link to={`/Homepage/Event`}>
           <li>
             <button className="custom-dropdown-item">EVENTS</button>
           </li>
           </Link>
-          <li>
-            <button className="custom-dropdown-item">Others</button>
-          </li>
         </ul>
         <div className="back custom-dropdown-item" onClick={toggleDropdown}>
           ^

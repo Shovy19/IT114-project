@@ -1,29 +1,76 @@
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { client } from '../lib/sanityClient';
 
-  const [buildingData, setBuildingData] = useState(null);
+import DropdownMenu from '../components/DropdownMenu';
 
-  // Fetch data from Sanity
+import DateTimeDisplayFlex from '../components/DateTimeDisplayFlex'
+
+import "./Login.css"
+
+const Event = () => {
+
+  const { search } = useLocation();
+  const params = new URLSearchParams(search);
+  const username = params.get('username');
+
+  const [events, setEvents] = useState([]);
+
   useEffect(() => {
-    client
-      .fetch(
-        '*[_type == "building"]{name, building_id, description, image, rooms[]->{room_id, location, description}}'
-      )
-      .then((data) => {
-        // Set the fetched data to the state
-        setBuildingData(data[0]); // Assuming you want data for the first building, you can adjust as needed
-      })
-      .catch((error) => {
-        console.error('Error fetching data from Sanity:', error);
-      });
-  }, []); // The empty array ensures the effect runs only once when the component mounts
+    // Fetch all "event" documents
+    const query = `*[_type == 'event'] {
+      title,
+      slug,
+      mainImage,
+      publishedAt,
+      address,
+      body
+    }`;
 
-  if (!buildingData) {
-    return <div>Loading...</div>;
-  }
+    client.fetch(query).then((data) => {
+      setEvents(data);
+      console.log(data)
+    });
+  }, []);
 
+  return (
+    <div className='background-image-overlay'>
+      <section className='md:h-screen grid md:grid-cols-9 lg:grid-cols-7'>
+        <div className='bg-slate-300 md:col-span-3 lg:col-span-2 text-center'>
+          <Link to={`/Homepage?username=${username}`}>
+            <h1 className='text-3xl md:text-4xl bg-green-600 py-4 text-slate-200 font-bold'>
+                CSU Events
+              </h1>
+          </Link>
 
-<section className='pt-40 pb-5 px-3 grid lg:grid-cols-4 gap-3 text-center'>
-        <article className='bg-slate-500 p-1 rounded-lg shadow-lg'>
-          <img src={buildingData.image.asset.url} alt={buildingData.name} />  
-          <h1 className='py-2 text-slate-100 font-semibold'>{buildingData.name}</h1>
-          <p>{buildingData.description}</p>
-        </article>
+        </div>
+
+        <div className='md:relative md:col-span-6 lg:col-span-5'>
+
+            <div className='absolute bg-black-300 w-lg right-1 top-1 rounded-lg'>
+              <DropdownMenu />
+            </div>
+
+            <div>
+            <h1 className='text-center mb-10 mt-10 text-2xl font-bold text-slate-800'>Event List</h1>
+            <ul className='mx-6'>
+              {events.map((event) => (
+                <li key={event.slug.current} className='bg-green-600 mt-3 rounded-lg py-2 px-7'>
+                  <h2 className='text-xl'>{event.title}</h2>
+                  <p className='text-sm text-slate-700'>Location: {event.address}</p>
+                  <p>Date: {event.publishedAt}</p>
+                  <p>Description: {event.body}</p>
+                </li>
+              ))}
+            </ul>
+            </div>
+
+        </div>
+
+      </section>
+        
+    </div>
+  )
+}
+
+export default Event
