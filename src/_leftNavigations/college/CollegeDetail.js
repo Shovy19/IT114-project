@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom'
 
 const CollegeDetail = () => {
 
-    const { collegeName } = useParams();
+  const { collegeName } = useParams();
   const [college, setCollege] = useState(null);
 
   useEffect(() => {
@@ -58,22 +58,6 @@ const CollegeDetail = () => {
                 </div>
             
                 
-              </div>
-              <div className='flex mt-5'>
-                <div className='ml-5 backgroundTransparent px-5 py-4 rounded-md'>
-                  <h2 className='mb-2 text-white text-xl font-bold ml-2'>Departments:</h2>
-                  <ul className='grid grid-cols-3 gap-2 overflow-y-auto'>
-                    {college.departments.map((department, index) => (
-                      <li 
-                      className='text-slate-300 bg-green-800 text-center rounded-sm px-4 py-2 hover:bg-green-600 hover:text-slate-200 cursor-pointer mt-1' 
-                      key={index}
-                      >
-                        <p className='text-white font-medium text-xl'>{department.name}</p>
-                        <p className='text-slate-100'>{department.description}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
 
             </div>

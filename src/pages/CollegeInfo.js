@@ -70,7 +70,7 @@ const CollegeInfo = () => {
           </div>
         </section>
 
-        <div className='absolute right-3 top-1'>
+        <div className='absolute right-5 top-1'>
           <DropdownMenu />
         </div>
 
