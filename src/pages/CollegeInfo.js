@@ -34,7 +34,7 @@ const CollegeInfo = () => {
                 className='leftNavigationLabelInstructor'
                 onClick={() => handleNavigationClick('CollegeDetail')}
               >
-                CollegeDetail
+                College Detail
               </li>
               <li
                 className='leftNavigationLabelInstructor'

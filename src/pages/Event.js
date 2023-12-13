@@ -1,72 +1,84 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { client } from '../lib/sanityClient';
 
 import DropdownMenu from '../components/DropdownMenu';
 
 import DateTimeDisplayFlex from '../components/DateTimeDisplayFlex'
 import LeftNavigationEvent from '../components/LeftNavigationEvent';
 
+import All from '../_leftNavigations/_event/All';
+import Latest from '../_leftNavigations/_event/Latest';
+import Past from '../_leftNavigations/_event/Past';
+import MoreDetail from '../_leftNavigations/_event/MoreDetail';
+
+
 import "./Login.css"
 
 const Event = () => {
 
-  const { search } = useLocation();
-  const params = new URLSearchParams(search);
-  const username = params.get('username');
+  const [activeContent, setActiveContent] = useState('InstructorDetail');
 
-  const [events, setEvents] = useState([]);
+  const handleNavigationClick = (content) => {
+    setActiveContent(content);
+  };
 
-  useEffect(() => {
-    // Fetch all "event" documents
-    const query = `*[_type == 'event'] {
-      title,
-      slug,
-      mainImage,
-      publishedAt,
-      address,
-      body
-    }`;
-
-    client.fetch(query).then((data) => {
-      setEvents(data);
-      console.log(data)
-    });
-  }, []);
 
   return (
     <>
       <div className='flex h-screen'>
-        <section className='bg-green-600 w-[350px] pt-5'>
+        <section className='bg-green-600 w-1/5 pt-5'>
           <Link to='/Homepage'>
             <h1 className='text-center text-white text-3xl font-bold'>CSU Events</h1>
 
           </Link>
-          <div>
-            <LeftNavigationEvent />
+          <div className='mt-[80px]'>
+            <ul className='list-none text-center mx-5'>
+              <li
+                className='leftNavigationLabelInstructor'
+                onClick={() => handleNavigationClick('All')}
+              >
+                All Event
+              </li>
+              <li
+                className='leftNavigationLabelInstructor'
+                onClick={() => handleNavigationClick('Latest')}
+              >
+                Latest Event
+              </li>
+              <li
+                className='leftNavigationLabelInstructor'
+                onClick={() => handleNavigationClick('Past')}
+              >
+                Past Event
+              </li>
+              <li
+                className='leftNavigationLabelInstructor'
+                onClick={() => handleNavigationClick('MoreDetail')}
+              >
+                More Details
+              </li>
+            </ul>
           </div>
          
           
         </section>
 
-        <div className='absolute right-3 top-1'>
+        <div className='absolute right-7 top-1'>
           <DropdownMenu />
         </div>
 
-        <section className='background-image-overlay grow'>
-          <div>
-            <h1 className=' text-center mb-10 mt-14 text-5xl font-bold text-slate-600'>Event List</h1>
-            <ul className='mx-6 grid grid-cols-2 gap-1'>
-              {events.map((event) => (
-                <li key={event.slug.current} className='bg-green-800 rounded-lg py-2 px-7'>
-                  <h2 className='text-xl'>{event.title}</h2>
-                  <p className='text-sm text-slate-400'>Location: {event.address}</p>
-                  <p className='text-sm'>Date: {event.publishedAt}</p>
-                  <p>Description: {event.body}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <section className='background-image-overlay w-4/5 overflow-auto pb-5'>
+        {activeContent === 'All' ? (
+            <All />
+          ) : activeContent === 'Latest' ? (
+            <Latest />
+          ) : activeContent === 'Past' ? (
+            <Past />
+          ) : activeContent === 'MoreDetail' ? (
+            <MoreDetail />
+          ) : (
+            <All />
+          )}
          
         </section>
       </div>

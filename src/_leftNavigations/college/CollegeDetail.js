@@ -50,11 +50,11 @@ const CollegeDetail = () => {
         {college ? (
           <>
             <div className=''>
-              <div className='flex backgroundTransparent'>
+              <div className='flex backgroundTransparent py-5 px-5'>
                 {college.image && <img src={college.image} alt={college.name} className='w-[500px]' />}
                 <div className='text-center pl-3 grow '>
                   <h1 className='text-center text-3xl text-slate-100 font-semibold mt-8'>{college.name}</h1>
-                  <p className='w-auto text-white mt-5'>{college.description}</p>
+                  <p className='w-auto text-white mt-5'>{college.description}</p> 
                 </div>
             
                 
