@@ -65,7 +65,7 @@ const InstructorInfo = () => {
           <DropdownMenu />
         </div>
 
-        <section className='background-image-overlay grow pr-5'>
+        <section className='background-image-overlay grow pr-5 overflow-auto pb-4'>
         {activeContent === 'InstructorDetail' ? (
             <InstructorDetail />
           ) : activeContent === 'Rating' ? (

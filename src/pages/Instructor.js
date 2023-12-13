@@ -75,7 +75,7 @@ const Instructor = () => {
   return (
     <>
       <div className='flex h-screen'>
-        <section className='bg-green-600 w-[350px] pt-5'>
+        <section className='bg-green-600 w-[350px] pt-5 overflow-y-auto pb-5'>
           <Link to='/Homepage'>
             <h1 className='text-center text-white text-3xl font-bold'>CSU Instructors</h1>
 
@@ -102,7 +102,7 @@ const Instructor = () => {
           <DropdownMenu />
         </div>
 
-        <section className='background-image-overlay grow'>
+        <section className='background-image-overlay grow overflow-auto pb-5'>
           <div>
             <div className='w-[400px] h-[130px] mt-6'>
               <SearchInstructor />
@@ -110,7 +110,7 @@ const Instructor = () => {
             <div className='bg-green-800 rounded-sm mt-[30px] mx-5 px-5 py-4'>
               <h1 className='text-xl text-white'>Instructors</h1>
               {/* List of instructors for the selected college */}
-              <div>
+              <div className=''>
                 <ul className='grid lg:grid-cols-2 lg:gap-1 grid-cols-1 '>
                   {instructors.map((instructor, index) => (
                     <Link key={index} to={`/instructor/${instructor.name}`}>

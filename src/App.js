@@ -8,7 +8,7 @@ import Building from "./pages/Building";
 import Colleges from "./pages/Colleges"
 import Instructor from "./pages/Instructor";
 import Event from "./pages/Event";
-import CollegeDetail from './pages/CollegeDetail'
+import CollegeDetail from './pages/CollegeInfo'
 import InstructorInfo from "./pages/InstructorInfo";
 import BuildingInfo from "./pages/BuildingInfo";
 

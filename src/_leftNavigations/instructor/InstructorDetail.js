@@ -62,11 +62,11 @@ const InstructorDetail = () => {
             <div className='flex gap-x-8 backgroundTransparent px-3 py-3'>
                 <img className='w-[240px] h-[240px] object-cover' src={instructor.image} alt={instructor.name} />
                 <div className='mt-5'>
-                    <h1><span className='labelinfo'>Instructor: </span>{instructor.name}</h1>
-                    <p><span className='labelinfo'>Position: </span>{instructor.title}</p>
-                    <p><span className='labelinfo'>Department: </span>{instructor.college.name}</p>
+                    <h1 className='text-lg text-white shadow'><span className='labelinfo'>Instructor: </span>{instructor.name}</h1>
+                    <p className='text-lg text-white shadow'><span className='labelinfo'>Position: </span>{instructor.title}</p>
+                    <p className='text-lg text-white shadow'><span className='labelinfo'>Department: </span>{instructor.college.name}</p>
                     <p className='labelinfo'>BIO:</p>
-                    <p className='w-[500px] text-black px-4 py-2 rounded-sm mt-1'>{instructor.bio}</p>
+                    <p className='w-[500px] text-white px-4 py-2 rounded-sm mt-1'>{instructor.bio}</p>
                 </div>
             </div>
             <div className='flex'>
