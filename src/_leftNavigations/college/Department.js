@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Issue = () => {
+const Department = () => {
   return (
     <div>
         <div className='ml-4'>
@@ -10,10 +10,10 @@ const Issue = () => {
           </Link>
         </div>
         <div className='ml-4 mt-7'>
-            <div className='text-3xl text-white font-bold text-center pt-[240px]'>Issue Page is undermaintainance</div>
+            <div className='text-3xl text-white font-bold text-center pt-[240px]'>Department Page is undermaintainance</div>
         </div> 
     </div>
   )
 }
 
-export default Issue
+export default Department;

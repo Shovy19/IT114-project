@@ -9,7 +9,7 @@ import "./Login.css"
 import CollegeDetail from '../_leftNavigations/college/CollegeDetail'
 import Achivement from '../_leftNavigations/college/Achievement'
 import History from '../_leftNavigations/college/History'
-import Issue from '../_leftNavigations/college/Issue'
+import Department from '../_leftNavigations/college/Department'
 import MoreDetail from '../_leftNavigations/college/MoreDetail'
 import Student from '../_leftNavigations/college/Student'
 
@@ -44,9 +44,9 @@ const CollegeInfo = () => {
               </li>
               <li
                 className='leftNavigationLabelInstructor'
-                onClick={() => handleNavigationClick('Issue')}
+                onClick={() => handleNavigationClick('Department')}
               >
-                Issue
+                Department
               </li>
               <li
                 className='leftNavigationLabelInstructor'
@@ -80,8 +80,8 @@ const CollegeInfo = () => {
             <CollegeDetail />
           ) : activeContent === 'History' ? (
             <History />
-          ) : activeContent === 'Issue' ? (
-            <Issue />
+          ) : activeContent === 'Department' ? (
+            <Department />
           ) : activeContent === 'Achievement' ? (
             <Achivement />
           ) : activeContent === 'Student' ? (
