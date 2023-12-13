@@ -19,6 +19,7 @@ export default defineType({
     defineField({
       name: 'shortDescription',
       title: 'Short Description',
+      description: 'aha dapit ang room',
       type: 'text',
     }),
     // Add an image field
