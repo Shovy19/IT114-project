@@ -52,14 +52,14 @@ const Search = () => {
       <ul className='mt-5'>
         {searchResults.length > 0 ? (
           searchResults.map((course) => (
-            <div className='px-3 py-1 mb-1 bg-green-900 rounded-md hover:bg-green-800 text-white' key={course._id}>
+            <div className='px-3 py-1 mb-1 bg-green-900 rounded-md hover:bg-green-800 text-white rounded-sm' key={course._id}>
               <h2>{course.title}</h2>
               <p>{course.description}</p>
               {/* Render other course details as needed */}
             </div>
           ))
         ) : (
-          <p>No matching courses found.</p>
+          <p className='text-center text-white'>No matching courses found.</p>
         )}
       </ul>
     </div>

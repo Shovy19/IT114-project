@@ -3,6 +3,7 @@ import { client } from '../../lib/sanityClient'
 import { Link } from 'react-router-dom'
 
 
+
 import "../../pages/Login.css"
 
 const AllSubject = () => {
@@ -27,13 +28,12 @@ const AllSubject = () => {
   return (
     <div>
       <h1 className='ml-5 text-3xl text-slate-700 shadow-sm font-extrabold'>All Courses</h1>
-      <div className='grid grid-cols-2 gap-2 backgroundTransparent px-3 pt-2 pb-2'>
+      <div className='grid grid-cols-2 gap-2 backgroundTransparent px-3 pt-2 pb-2 '>
         {courses.map((course) => (
-          <div className='bg-green-700 px-2 py-2 rounded-sm text-white' key={course._id}>
+          <Link to={`/subject/${course._id}`} key={course._id} className='bg-green-700 px-2 py-2 rounded-sm cursor-pointer text-white'>
             <h2>{course.title}</h2>
-            <p>{course.description}</p>
             {/* Render other course details as needed */}
-          </div>
+          </Link>
         ))}
       </div>
     </div>

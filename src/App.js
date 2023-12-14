@@ -12,6 +12,7 @@ import CollegeDetail from './pages/CollegeInfo'
 import InstructorInfo from "./pages/InstructorInfo";
 import BuildingInfo from "./pages/BuildingInfo";
 import Subjects from './pages/Subjects'
+import SubjectInfo from "./_leftNavigations/subjects/SubjectInfo";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/colleges/:collegeName" element={<CollegeDetail />} />
           <Route path="/instructor/:instructorName" element={<InstructorInfo />} />
           <Route path="/Building/:buildingName" element={<BuildingInfo />} />
+          <Route path="/subject/:courseId" element={<SubjectInfo />} />
           
 
           

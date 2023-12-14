@@ -58,7 +58,7 @@ const Colleges = () => {
           <DropdownMenu />
         </div>
 
-        <section className='background-image-overlay grow'>
+        <section className='background-image-overlay grow overflow-auto'>
           <div className='pt-20 grid xl:grid-cols-2'>
             {colleges.map((college, index) => (
               <Link to={`/colleges/${college.name}`} key={index}>
