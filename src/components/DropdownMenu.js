@@ -52,6 +52,16 @@ const DropdownMenu = () => {
             <button className="custom-dropdown-item">EVENTS</button>
           </li>
           </Link>
+          <Link to={`/Homepage/Subjects`}>
+          <li>
+            <button className="custom-dropdown-item">SUBJECTS</button>
+          </li>
+          </Link>
+          <Link to={`/`}>
+          <li>
+            <button className="custom-dropdown-item">EXIT</button>
+          </li>
+          </Link>
         </ul>
         <div className="back custom-dropdown-item" onClick={toggleDropdown}>
           ^
